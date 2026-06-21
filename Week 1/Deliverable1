@@ -1,0 +1,45 @@
+Key Columns:
+ - ListPrice (float):                   Property price at the time of listing, as determined by the seller
+ - ListingKey (str):                    Unique value assigned and recorded for each listing
+ - ListingContractDate (datetime):      Date for which the listing agreement was signed
+ - PurchaseContractDate (datetime):     Date for which the purchase agreement was signed by buyer and seller
+ - CloseDate (datetime):                Date for which the transaction is officially closed
+ - ClosePrice (float):                  Final sale price
+ - Latitude (float):                    Geographic coordinates for the property's latitudinal location
+ - Longitude (float):                   Geographic coordinates for the property's longitudinal location
+ - PropertyType (PropertyType Enum):    Residential classification of the property
+ - BedroomsTotal (integer):             Total number of bedrooms for the property
+ - BathroomsTotalInteger (integer):     Total number (rounded) of bathrooms on the property
+ - LivingArea (float):                  Interior area (square footage) of the property
+ - DaysOnMarket (integer):              Total number of days between the ListingContractDate and CloseDate
+ - UnparsedAddress (str):               Complete property address, as entered by the listing agent
+
+
+Additional Information Columns:
+ - CountyOrParish
+ - MlsStatus
+ - LotSizeAcres
+ - City
+ - StateOrProvince
+ - Stories
+ - LotSizeArea
+ - PostalCode
+ - ListingId
+ - OriginalListPrice
+ - ListingKey Numeric
+ - PropertySubType
+ - YearBuilt
+ - ContractStatusChangeDate
+ - LotSizeSquareFeet
+
+Agent Information Columns:
+ - BuyerAgentAOR
+ - BuyerAgentFirstName
+ - BuyerAgentLastName
+ - BuyerOfficeAOR
+ - BuyerOfficeName
+ - ListAgentAOR
+ - ListAgentFirstName
+ - ListAgentLastName
+ - ListOfficeName
+
