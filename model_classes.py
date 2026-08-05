@@ -189,7 +189,7 @@ class W5_Regs():
       totals.append([cols, scr])
     totals = sorted(totals, key=lambda x: x[1], reverse=rev)
     if prt == True:
-      if totals[0][1] == 0.0:
+      if round(totals[0][1],4) == 0.0:
         print(f"{totals[0][0]}:\n {totals[0][1]}")
       else:
         print(f"{totals[0][0]}:\n {round(totals[0][1],4)}")
@@ -214,7 +214,7 @@ class W5_Regs():
       y_te, y_pr = model(trn, tes, cols)
       scr = evals(y_te, y_pr)
       if prt == True:
-        if scr == 0.0:
+        if round(scr,4) == 0.0:
           print(f"{cols}: \t\t {scr}")
         else:
           print(f"{cols}: \t\t {round(scr,4)}")
