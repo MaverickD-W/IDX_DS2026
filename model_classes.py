@@ -170,11 +170,17 @@ class W5_Regs():
     return r2
 
 
-  def shrt_main(self, model, trn, tes, evals, feats, rev=True, prt=True):
+  def shrt_main(self, model, trn, tes, evals, feats, rev=True, prt=True, **kwargs):
 
     scores = []
     for col in feats:
-      y_te, y_pr = model(trn, tes, [col])
+      try:
+        y_te, y_pr = model(trn, tes, [col], dep=kwargs["dep"], l_rate=kwargs["l_rate"], est=kwargs["est"])
+      except:
+        try:
+          y_te, y_pr = model(trn, tes, [col], dep=kwargs["dep"], l_rate=kwargs["l_rate"])
+        except:
+          y_te, y_pr = model(trn, tes, [col])
       scr = evals(y_te, y_pr)
       scores.append(scr)
     scr_lst = [[feats[i], scores[i]] for i in range(len(scores))]
@@ -184,24 +190,33 @@ class W5_Regs():
     for i in range(1, len(scores)):
       maximum = i
       cols = [scr_lst[a][0] for a in range(maximum)]
-      y_te, y_pr = model(trn, tes, cols)
+      try:
+        y_te, y_pr = model(trn, tes, cols, dep=kwargs["dep"], l_rate=kwargs["l_rate"], est=kwargs["est"])
+      except:
+        try:
+          y_te, y_pr = model(trn, tes, cols, dep=kwargs["dep"], l_rate=kwargs["l_rate"])
+        except:
+          y_te, y_pr = model(trn, tes, cols)
       scr = evals(y_te, y_pr)
       totals.append([cols, scr])
     totals = sorted(totals, key=lambda x: x[1], reverse=rev)
     if prt == True:
-      if round(totals[0][1],4) == 0.0:
-        print(f"{totals[0][0]}:\n {totals[0][1]}")
-      else:
-        print(f"{totals[0][0]}:\n {round(totals[0][1],4)}")
+      print(f"Correlation of {totals[0][0]}:\n {round(totals[0][1],4)}")
 
     return totals[0][0], totals[0][1]
 
 
-  def lng_main(self, model, trn, tes, evals, feats, rev=True, prt=True):
+  def lng_main(self, model, trn, tes, evals, feats, rev=True, prt=True, **kwargs):
 
     scores = []
     for col in feats:
-      y_te, y_pr = model(trn, tes, [col])
+      try:
+        y_te, y_pr = model(trn, tes, [col], dep=kwargs["dep"], l_rate=kwargs["l_rate"], est=kwargs["est"])
+      except:
+        try:
+          y_te, y_pr = model(trn, tes, [col], dep=kwargs["dep"], l_rate=kwargs["l_rate"])
+        except:
+          y_te, y_pr = model(trn, tes, [col])
       scr = evals(y_te, y_pr)
       scores.append(scr)
     scr_lst = [[feats[i], scores[i]] for i in range(len(scores))]
@@ -211,13 +226,16 @@ class W5_Regs():
     for i in range(1, len(scores)):
       maximum = i
       cols = [scr_lst[a][0] for a in range(maximum)]
-      y_te, y_pr = model(trn, tes, cols)
+      try:
+        y_te, y_pr = model(trn, tes, cols, dep=kwargs["dep"], l_rate=kwargs["l_rate"], est=kwargs["est"])
+      except:
+        try:
+          y_te, y_pr = model(trn, tes, cols, dep=kwargs["dep"], l_rate=kwargs["l_rate"])
+        except:
+          y_te, y_pr = model(trn, tes, cols)
       scr = evals(y_te, y_pr)
       if prt == True:
-        if round(scr,4) == 0.0:
-          print(f"{cols}: \t\t {scr}")
-        else:
-          print(f"{cols}: \t\t {round(scr,4)}")
+        print(f"Correlation of {cols}: \t\t {round(scr,4)}")
 
       totals.append([cols, scr])
     totals = sorted(totals, key=lambda x: x[1], reverse=True)
