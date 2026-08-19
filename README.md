@@ -57,9 +57,9 @@ ADDITIONAL FEATURES:
 
 [ENCODING & RECLEANING]
   - DROPPED columns with almost entirely null-values, as well as ones with listing information unnecessary for analysis
-  - CONVERTS "CloseDate" to TYPE datetime and "PostalCode" to TYPE int
-  - ENCODES remaining True/False columns (columns with "YN" in the title) as 1/0 values
-  - ADDS COLUMN "SaleMonth" from month values in "CloseDate"
+  - CONVERTED "CloseDate" to TYPE datetime and "PostalCode" to TYPE int
+  - ENCODED remaining True/False columns (columns with "YN" in the title) as 1/0 values
+  - ADDED COLUMN "SaleMonth" from month values in "CloseDate"
 
 ## Test-Train Split
 Defines Test set data frame as the most recent month in the data
