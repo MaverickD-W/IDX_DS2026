@@ -31,7 +31,7 @@ ADDITIONAL FEATURES:
 
 [CLEANING]
 - DROPPED all DUPLICATE rows
-- DROPPED all rows with NON-NULL VALUES in [critical columns]
+- DROPPED all rows with NULL VALUES in [critical columns]
 - VALIDATED data TYPES for [critical columns]
 - KEPT rows in data frame where [critical columns] have VALUES GREATER THAN 0
 
@@ -47,7 +47,7 @@ ADDITIONAL FEATURES:
   - DISCREPENCIES in "ClosePrice" data entry were handled by comparison to "ListPrice"
     - DROPPED rows where ["ClosePrice"/"ListPrice"] or ["ListPrice"/"ClosePrice"] was GREATER THAN 2
   - VALIDATED data TYPES for [new columns]
-  - DROPPED all rows with NON-NULL VALUES in [new columns]
+  - DROPPED all rows with NULL VALUES in [new columns]
   - DROPPED rows where "ParkingTotal" was 0, but non-null "GarageSpaces" values were not 0
 
 [REANALYSIS]
