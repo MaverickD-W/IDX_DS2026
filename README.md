@@ -13,9 +13,9 @@ PRE-SET VALUES:
   - "PropertyType" = "Residential"
   - "PropertySubType" == "SingleFamilyResidence"
   - "StateOrProvince" == "CA"
-    - *Note: Null or zero-valued "Longitude" and "Latitude" values will not need to be dropped as long as "StateorProvince" == CA*
+    - *Note: Null or zero-valued 'Longitude' and 'Latitude' values will not need to be dropped as long as 'StateorProvince' == "CA"*
   
-  *Note: MlsStatus == "Closed" is implied for non-null "CloseDate" values*
+  *Note: 'MlsStatus' == "Closed" is implied for non-null 'CloseDate' values*
 
 COMPARISONS:
   - "PostalCode", "City", "CountyOrParish"
