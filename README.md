@@ -41,6 +41,7 @@ ADDITIONAL FEATURES:
   - "Stories" and "Levels" both retained a significant number of null-values
   - "YearBuilt" and "FireplaceYN" respectively contain less than 100 non-null values
 - DEFINED additional critical columns, from reanalysis, as [new columns]
+  - "PostalCode", "ParkingTotal", "YearBuilt"
 
 [RECLEANING]
   - DISCREPENCIES in "ClosePrice" data entry were handled by comparison to "ListPrice"
