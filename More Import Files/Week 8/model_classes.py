@@ -30,6 +30,7 @@ from sktime.performance_metrics.forecasting import median_absolute_percentage_er
 
 # Preset Values
 
+end_yr = 2026
 end_mnth = 6
 
 
@@ -59,7 +60,7 @@ class W4_Regression():
     self.df = df
 
 
-  def test_train_split(self, end=end_mnth):
+  def test_train_split(self, yr=end_yr, mo=end_mnth):
     """
     Takes a DataFrame
     Encodes "PropertyType" column
@@ -69,7 +70,7 @@ class W4_Regression():
     for i in self.df['CloseDate']:                                         # For each date in the "CloseDate" column
       yr, mo = i.year, i.month                                          # Define the year and month values of date i
       yr_mo.append([yr,mo])                                             # Append to "yr_mo" a list of date i's year and month
-    te_set = [b for b in range(len(yr_mo)) if yr_mo[b] == [2026,end]]   # Define a list of row #s with date 06/2026
+    te_set = [b for b in range(len(yr_mo)) if yr_mo[b] == [yr,mo]]   # Define a list of row #s with date 06/2026
     te_rng = te_set[0::len(te_set)-1]                                 # Define a list of the first and last row in "te_set"
     tr, te = self.df[0:te_rng[0]], self.df[te_rng[0]:te_rng[1]]             # Define the training and test sets of the inputted df
     return tr, te
@@ -119,7 +120,8 @@ class W5_Regs():
     self.crit_cols = totals+self.new_cols
     self.log_cols = main_cols+self.new_cols
 
-  def test_train_split(self, end=end_mnth):
+
+  def test_train_split(self, yr=end_yr, mo=end_mnth):
     """
     Takes a DataFrame
     Encodes "PropertyType" column
@@ -129,7 +131,7 @@ class W5_Regs():
     for i in self.df['CloseDate']:                                         # For each date in the "CloseDate" column
       yr, mo = i.year, i.month                                          # Define the year and month values of date i
       yr_mo.append([yr,mo])                                             # Append to "yr_mo" a list of date i's year and month
-    te_set = [b for b in range(len(yr_mo)) if yr_mo[b] == [2026,end]]   # Define a list of row #s with date 06/2026
+    te_set = [b for b in range(len(yr_mo)) if yr_mo[b] == [yr,mo]]   # Define a list of row #s with date 06/2026
     te_rng = te_set[0::len(te_set)-1]                                 # Define a list of the first and last row in "te_set"
     tr, te = self.df[0:te_rng[0]], self.df[te_rng[0]:te_rng[1]]             # Define the training and test sets of the inputted df
     return tr, te
@@ -247,7 +249,7 @@ class W7_Boosting():
     self.df = df
 
 
-  def test_train_split(self, end=end_mnth):
+  def test_train_split(self, yr=end_yr, mo=end_mnth):
     """
     Takes a DataFrame
     Encodes "PropertyType" column
@@ -257,7 +259,7 @@ class W7_Boosting():
     for i in self.df['CloseDate']:                                         # For each date in the "CloseDate" column
       yr, mo = i.year, i.month                                          # Define the year and month values of date i
       yr_mo.append([yr,mo])                                             # Append to "yr_mo" a list of date i's year and month
-    te_set = [b for b in range(len(yr_mo)) if yr_mo[b] == [2026,end]]   # Define a list of row #s with date 06/2026
+    te_set = [b for b in range(len(yr_mo)) if yr_mo[b] == [yr,mo]]   # Define a list of row #s with date 06/2026
     te_rng = te_set[0::len(te_set)-1]                                 # Define a list of the first and last row in "te_set"
     tr, te = self.df[0:te_rng[0]], self.df[te_rng[0]:te_rng[1]]             # Define the training and test sets of the inputted df
     return tr, te
