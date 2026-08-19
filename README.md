@@ -33,7 +33,7 @@ ADDITIONAL FEATURES:
 - DROPPED all DUPLICATE rows
 - DROPPED all rows with NON-NULL VALUES in [critical columns]
 - VALIDATED data TYPES for [critical columns]
-- KEEPS rows in data frame where [critical columns] have VALUES GREATER THAN 0
+- KEPT rows in data frame where [critical columns] have VALUES GREATER THAN 0
 
 [REANALYSIS]
   - "PostalCode" had 1 remaining null-value and the most unique values when compared to "City" and "CountyOrParish"
