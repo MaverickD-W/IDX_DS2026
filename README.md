@@ -14,6 +14,7 @@ PRE-SET VALUES:
   - "PropertySubType" == "SingleFamilyResidence"
   - "StateOrProvince" == "CA"
     - *Note: Null or zero-valued "Longitude" and "Latitude values will not need to be dropped as long as "StateorProvince == CA*
+  
   *Note: MlsStatus == "Closed" is implied for non-null "CloseDate" values*
 
 COMPARISONS:
@@ -81,11 +82,9 @@ Boosting
 
 ## Scores
 
-R2 Score (R2)
-
-Mean Absolute Percentage Error (MAPE)
-
-Median Absolute Percentage Error (MdAPE)
+- R2 Score (R2)
+- Mean Absolute Percentage Error (MAPE)
+- Median Absolute Percentage Error (MdAPE)
 
 
 # Best Results
