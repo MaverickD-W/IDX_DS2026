@@ -42,12 +42,10 @@ extra_cols = [a+"_True" for a in extras] + [a+"_False" for a in extras]
 
 totals = main_cols+extra_cols
 
-crit_cols = totals + ['ClosePrice/DaysOnMarket', 'LivingArea/LotSizeSquareFeet', 'LotSizeSquareFeet/DaysOnMarket',
-                      'LivingArea/DaysOnMarket', 'BathroomsTotalInteger/BedroomsTotal', 'BathroomsTotalInteger/ClosePrice',
-                      'BedroomsTotal/ClosePrice', 'AvgAreaCost', 'AvgAreaLot', 'AvgLivingArea', 'DistrictID']
-log_cols = main_cols + ['ClosePrice/DaysOnMarket', 'LivingArea/LotSizeSquareFeet', 'LotSizeSquareFeet/DaysOnMarket',
-                      'LivingArea/DaysOnMarket', 'BathroomsTotalInteger/BedroomsTotal', 'BathroomsTotalInteger/ClosePrice',
-                      'BedroomsTotal/ClosePrice', 'AvgAreaCost', 'AvgAreaLot', 'AvgLivingArea', 'DistrictID']
+crit_cols = totals + ['LivingArea/LotSizeSquareFeet', 'LotSizeSquareFeet/DaysOnMarket', 'LivingArea/DaysOnMarket',
+                      'BathroomsTotalInteger/BedroomsTotal', 'AvgAreaCost', 'AvgAreaLot', 'AvgLivingArea', 'DistrictID']
+log_cols = main_cols + ['LivingArea/LotSizeSquareFeet', 'LotSizeSquareFeet/DaysOnMarket', 'LivingArea/DaysOnMarket',
+                        'BathroomsTotalInteger/BedroomsTotal', 'AvgAreaCost', 'AvgAreaLot', 'AvgLivingArea', 'DistrictID']
 
 
 target = "ClosePrice"
